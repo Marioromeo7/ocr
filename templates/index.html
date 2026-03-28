@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><div style="margin-left: 50%;">
+    {%if path%}
+    <img src="{{url_for('static',filename=path)}}" alt="">
+    <p>invoice:{{v[0]}}</p>
+    {%endif%}
+    <form action="/" method='post' enctype="multipart/form-data">
+    <input type="file" accept="image/*" name="image" id="image">
+    <input type="submit" value="submit">
+</form></div>
+</body>
+</html>
