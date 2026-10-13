@@ -67,6 +67,31 @@ Body: image=<file>
 
 ---
 
+## Evaluation
+
+A synthetic single-sample stress test is documented in [`SYNTHETIC_EVAL.md`](SYNTHETIC_EVAL.md).
+
+Using one labeled invoice image, the extractor was tested against 8 controlled variants: original, darker, brighter, higher contrast, lower contrast with JPEG compression, blurred, rotated left, and rotated right.
+
+| Metric | Result |
+|---|---:|
+| Invoice number exact match | 7 / 8 = 87.5% |
+| Total exact match | 7 / 8 = 87.5% |
+| Both fields exact match | 7 / 8 = 87.5% |
+
+On the original sample, the extractor returned:
+
+```json
+{
+  "v": [["206668", 0.9967]],
+  "va": [["1095.9", 0.9975]]
+}
+```
+
+These figures are useful as a reproducible stress check, not as production accuracy. A real accuracy claim should be measured on a labeled invoice dataset.
+
+---
+
 ## Tech Stack
 
 - **Python** — core language

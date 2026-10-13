@@ -1,4 +1,4 @@
-from flask import Flask,url_for,render_template,request,redirect,url_for
+from flask import Flask, jsonify, render_template, request
 import os
 from o import o
 app=Flask(__name__)
@@ -12,7 +12,10 @@ def index():
         file=request.files['image']
         path=os.path.join(UploadFolder,file.filename)
         file.save(path)
-        return render_template('index.html',path=f"uploads/{file.filename}",v=o(path))
+        result=o(path)
+        if request.accept_mimetypes.best == "application/json":
+            return jsonify(result)
+        return render_template('index.html',path=f"uploads/{file.filename}",result=result)
     return render_template('index.html')
 if __name__=="__main__":
     app.run(debug=True)

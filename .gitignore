@@ -1,0 +1,7 @@
+.cache/
+.paddle-cache/
+.paddleocr/
+.venv-ocr/
+__pycache__/
+static/uploads/
+.synthetic-eval/

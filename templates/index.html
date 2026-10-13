@@ -8,7 +8,8 @@
 <body><div style="margin-left: 50%;">
     {%if path%}
     <img src="{{url_for('static',filename=path)}}" alt="">
-    <p>invoice:{{v[0]}}</p>
+    <p>invoice: {{result.v[0] if result.v else 'not found'}}</p>
+    <p>total: {{result.va[0] if result.va else 'not found'}}</p>
     {%endif%}
     <form action="/" method='post' enctype="multipart/form-data">
     <input type="file" accept="image/*" name="image" id="image">
